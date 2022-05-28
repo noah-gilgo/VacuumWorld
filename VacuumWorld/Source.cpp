@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <array>
+#include <exception>
 
 /*
 	Creator: Noah Gilgo
@@ -25,10 +26,45 @@ public:
 		@return void.
 	*/
 	void set_percept(std::array<bool, 2> vacuum_world) {
-		this->vacuum_world = vacuum_world;
-		return;
+		try {
+			this->vacuum_world = vacuum_world;
+			this->location = 0;
+			return;
+		}
+		catch (std::exception e) {
+			printf("ERROR: Please provide the agent with an environment to analyze.");
+		}
+	}
+
+	void suck() { // sets the Boolean value in vacuum_world at index = location to true.
+		try {
+			!vacuum_world[location];
+		} catch (std::exception e) {
+			printf("ERROR: Please provide the agent with an environment to analyze.");
+		}
+	}
+
+	void left() { // sets the location to 0 (to point to the left member of vacuum_world)
+		location -= 1;
+	}
+
+	void right() { // sets the location to 1 (to point to the right member of vacuum_world)
+		location += 1;
+	}
+
+	void agent_function() { // agent function.
+		try {
+			if (!vacuum_world[location]) { suck(); }
+			else if (location == 0) { right(); }
+			else if (location == 1) { left(); }
+		}
+		catch (std::exception e) {
+			printf("ERROR: Please provide the agent with an environment to analyze.");
+		}
 	}
 
 private:
-	std::array<bool, 2> vacuum_world;
+	std::array<bool, 2> vacuum_world; // Stores the percept of the agent.
+	int location; // Stores the index of the square currently occupied by the agent.
+
 };
