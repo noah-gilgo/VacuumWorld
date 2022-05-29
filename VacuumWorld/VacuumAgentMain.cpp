@@ -3,6 +3,11 @@
 #include <random>
 #include "VacuumAgent.h"
 
+/*
+	Creator: Noah Gilgo
+	Date: 5/28/2022
+*/
+
 int main() {
 	VacuumAgent agent; // Initializes the agent
 	std::array<bool, 2> vacuum_world{true, true}; // Initializes the task environment
