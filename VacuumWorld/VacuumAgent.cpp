@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <array>
 #include <exception>
+#include "VacuumAgent.h"
 
 /*
 	Creator: Noah Gilgo
@@ -68,3 +69,4 @@ private:
 	int location; // Stores the index of the square currently occupied by the agent.
 
 };
+
