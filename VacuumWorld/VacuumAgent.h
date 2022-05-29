@@ -17,6 +17,8 @@
 	world of artificial intelligence.
 */
 
+// TODO: Incorporate a performance measure for the VacuumAgent to track how "rationally" it behaves.
+
 
 class VacuumAgent {
 public:
